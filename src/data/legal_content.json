@@ -1,0 +1,229 @@
+﻿{
+  "meta": {
+    "service_name": "TWS Pilot",
+    "effective_date": "2026-02-11",
+    "last_updated": "2026-02-21",
+    "authoritative_language": "de",
+    "authoritative_notice_de": "Rechtlich massgeblich ist die deutsche Sprachfassung, sofern gesetzlich zulaessig.",
+    "authoritative_notice_en": "The German language version is legally authoritative where permitted by law."
+  },
+  "operator": {
+    "company_name": "Bart and Buy",
+    "legal_form": "Einzelunternehmen",
+    "representative": "Rafael Woerner",
+    "street": "Konrad-Adenauer-Str. 18",
+    "postal_code": "69221",
+    "city": "Dossenheim",
+    "country": "Germany",
+    "email": "contact@bartandbuy.de",
+    "phone": "+4962215999180",
+    "website": "https://bartandbuy.de"
+  },
+  "registration": {
+    "vat_id": "DE345361486"
+  },
+  "responsible_person": {
+    "name": "Rafael Woerner",
+    "street": "Konrad-Adenauer-Str. 18",
+    "postal_code": "69221",
+    "city": "Dossenheim",
+    "country": "Germany"
+  },
+  "dispute_resolution": {
+    "eu_odr_url": "https://ec.europa.eu/consumers/odr/",
+    "consumer_arbitration_participation_de": "Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+    "consumer_arbitration_participation_en": "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board."
+  },
+  "privacy": {
+    "controller_name": "Bart and Buy",
+    "controller_contact_email": "contact@bartandbuy.de",
+    "privacy_contact_email": "contact@bartandbuy.de",
+    "dpo_name": "Data Protection Team",
+    "dpo_contact": "contact@bartandbuy.de",
+    "data_categories": [
+      "Kontaktdaten (z. B. E-Mail-Adresse, Anzeigename).",
+      "Authentifizierungs- und Sitzungsdaten (z. B. Session-IDs, Login-Zeitpunkte).",
+      "Hochgeladene Handelsdaten und Importhistorie.",
+      "Technische Nutzungsdaten und Sicherheitsprotokolle."
+    ],
+    "processing_purposes": [
+      "Bereitstellung des Dienstes sowie Konto- und Zugriffsverwaltung.",
+      "Anzeige von Dashboard- und Importfunktionen.",
+      "IT-Sicherheit, Missbrauchserkennung und Betriebsstabilitaet.",
+      "Erfuellung gesetzlicher Pflichten und Nachweisfuehrung."
+    ],
+    "legal_bases": [
+      "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfuellung und vorvertragliche Massnahmen).",
+      "Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtungen).",
+      "Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen an sicherem Betrieb).",
+      "Art. 6 Abs. 1 lit. a DSGVO i. V. m. 25 Abs. 1 TDDDG (Einwilligung fuer nicht erforderliche Cookies/Tracking)."
+    ],
+    "recipients": [
+      "Hosting- und Infrastruktur-Dienstleister.",
+      "Authentifizierungs- und Sicherheitsdienstleister.",
+      "Auftragsverarbeiter fuer Analyse, Fehleranalyse und technische Kommunikation."
+    ],
+    "third_country_transfers": "Bei Uebermittlungen in Drittlaender ausserhalb der EU/des EWR verwenden wir geeignete Garantien, insbesondere EU-Standardvertragsklauseln und zusaetzliche Schutzmassnahmen.",
+    "retention_periods": [
+      "Kontodaten: bis zur Loeschung des Kontos und Ablauf gesetzlicher Aufbewahrungsfristen.",
+      "Importierte Handelsdaten: bis zur Loeschung durch Nutzer oder bis zum Ablauf konfigurierter Speicherfristen.",
+      "Sicherheits- und Betriebsprotokolle: nur fuer den erforderlichen Zeitraum zur Stoerungsanalyse und Missbrauchsabwehr.",
+      "Backups: rollierende, verschluesselte Sicherungen mit begrenzter Vorhaltezeit."
+    ],
+    "data_subject_rights": [
+      "Auskunft (Art. 15 DSGVO).",
+      "Berichtigung (Art. 16 DSGVO).",
+      "Loeschung (Art. 17 DSGVO).",
+      "Einschraenkung der Verarbeitung (Art. 18 DSGVO).",
+      "Datenuebertragbarkeit (Art. 20 DSGVO).",
+      "Widerspruch (Art. 21 DSGVO).",
+      "Beschwerde bei einer Aufsichtsbehoerde (Art. 77 DSGVO)."
+    ],
+    "complaint_authority_de": "Sie koennen sich bei einer Datenschutzaufsichtsbehoerde beschweren, insbesondere in dem Mitgliedstaat Ihres gewoehnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmasslichen Verstosses.",
+    "complaint_authority_en": "You may lodge a complaint with a data protection supervisory authority, in particular in the EU member state of your habitual residence, place of work, or the place of the alleged infringement.",
+    "storage_technologies": [
+      {
+        "technology": "localStorage (Theme- und UI-Praeferenzen)",
+        "purpose": "Speicherung nutzerseitiger Anzeigeeinstellungen fuer eine konsistente Darstellung.",
+        "legal_basis": "Art. 6 Abs. 1 lit. f DSGVO; 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich fuer die vom Nutzer gewuenschte Funktion).",
+        "duration": "Bis zur manuellen Loeschung im Browser oder zum Ueberschreiben durch neue Einstellungen.",
+        "required": true
+      },
+      {
+        "technology": "sessionStorage / technische Session-Speicher",
+        "purpose": "Aufrechterhaltung laufender Sitzung und Schutz vor Fehlfunktionen.",
+        "legal_basis": "Art. 6 Abs. 1 lit. b und lit. f DSGVO; 25 Abs. 2 Nr. 2 TDDDG.",
+        "duration": "Automatische Loeschung nach Ende der Browser-Sitzung.",
+        "required": true
+      },
+      {
+        "technology": "Cookie: Consent-Status",
+        "purpose": "Dokumentation und Verwaltung getroffener Einwilligungsentscheidungen.",
+        "legal_basis": "Art. 6 Abs. 1 lit. c DSGVO (Nachweispflicht), 25 Abs. 2 Nr. 2 TDDDG.",
+        "duration": "Bis zum Ablauf der konfigurierten Consent-Laufzeit oder bis zum Widerruf.",
+        "required": true
+      },
+      {
+        "technology": "Cookies/Identifier fuer Analyse und Werbung",
+        "purpose": "Messung von Reichweite, Kampagnenerfolg und nutzungsbezogener Optimierung.",
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO i. V. m. 25 Abs. 1 TDDDG (nur nach Einwilligung).",
+        "duration": "Gemass Anbieter- und CMP-Einstellungen; jederzeit widerrufbar.",
+        "required": false
+      }
+    ],
+    "cookie_categories": [
+      {
+        "name": "Unbedingt erforderliche Cookies",
+        "description": "Diese Cookies und aehnliche Technologien sind fuer Kernfunktionen des Dienstes notwendig.",
+        "legal_basis": "Art. 6 Abs. 1 lit. f DSGVO; 25 Abs. 2 Nr. 2 TDDDG.",
+        "examples": [
+          "Session-Cookie",
+          "Consent-Speicher fuer Cookie-Auswahl"
+        ],
+        "consent_required": false
+      },
+      {
+        "name": "Praeferenz-Cookies",
+        "description": "Speichern von nutzerseitigen Komforteinstellungen ausserhalb zwingender Kernfunktionen.",
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG.",
+        "examples": [
+          "Erweiterte Darstellungsoptionen",
+          "Layout- und Oberflaechenpraeferenzen"
+        ],
+        "consent_required": true
+      },
+      {
+        "name": "Analyse-Cookies",
+        "description": "Dienen der pseudonymen Reichweitenmessung und Produktverbesserung.",
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG.",
+        "examples": [
+          "Google Analytics",
+          "Google Tag Manager Events"
+        ],
+        "consent_required": true
+      },
+      {
+        "name": "Marketing-Cookies",
+        "description": "Ermoeglichen kampagnenbezogene Erfolgsmessung und interessenbasierte Werbung.",
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG.",
+        "examples": [
+          "Google Ads Conversion Tracking",
+          "Remarketing-Identifier"
+        ],
+        "consent_required": true
+      }
+    ],
+    "google_services": [
+      {
+        "service": "Google Tag Manager",
+        "active": true,
+        "purpose": "Technische Aussteuerung und Verwaltung von Analyse- und Marketing-Tags.",
+        "data_points": [
+          "IP-Adresse",
+          "Browser- und Geraeteinformationen",
+          "Event-Metadaten"
+        ],
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG (nur nach Einwilligung).",
+        "transfer_basis": "EU-Standardvertragsklauseln sowie zusaetzliche Schutzmassnahmen bei Drittlandbezug.",
+        "opt_out": "Widerruf ueber Cookie-Einstellungen jederzeit moeglich.",
+        "retention": "Speicherdauer richtet sich nach den im Tag Manager eingebundenen Diensten.",
+        "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland."
+      },
+      {
+        "service": "Google Analytics",
+        "active": true,
+        "purpose": "Reichweitenmessung, Nutzungsanalyse und Optimierung des Angebots.",
+        "data_points": [
+          "Gekuerzte IP-Adresse (sofern konfiguriert)",
+          "Seitenaufrufe und Interaktionen",
+          "Referrer und technische Browserdaten"
+        ],
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG (nur nach Einwilligung).",
+        "transfer_basis": "EU-Standardvertragsklauseln und ggf. weitere Garantien fuer Drittlandtransfers.",
+        "opt_out": "Widerruf in den Cookie-Einstellungen; alternativ Browser-Add-on von Google verfuegbar.",
+        "retention": "Ereignis- und nutzerbezogene Daten gemaess konfigurierter Aufbewahrungsfristen.",
+        "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland."
+      },
+      {
+        "service": "Google Ads (Conversion Tracking / Remarketing)",
+        "active": true,
+        "purpose": "Messung des Kampagnenerfolgs und Ausspielung interessenbezogener Anzeigen.",
+        "data_points": [
+          "Cookie-Identifier",
+          "Kampagnen- und Conversion-Informationen",
+          "Interaktionsdaten"
+        ],
+        "legal_basis": "Art. 6 Abs. 1 lit. a DSGVO; 25 Abs. 1 TDDDG (nur nach Einwilligung).",
+        "transfer_basis": "EU-Standardvertragsklauseln und zusaetzliche technische/vertragliche Schutzmassnahmen.",
+        "opt_out": "Widerruf ueber Cookie-Einstellungen; zusaetzlich moeglich ueber Google Ads Settings.",
+        "retention": "Entsprechend den in Google Ads und der CMP hinterlegten Fristen.",
+        "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland."
+      },
+      {
+        "service": "Google reCAPTCHA (optional)",
+        "active": false,
+        "purpose": "Schutz vor automatisierten Eingaben und Missbrauch in Formularen.",
+        "data_points": [
+          "IP-Adresse",
+          "Interaktionsdaten",
+          "Browser- und Geraeteinformationen"
+        ],
+        "legal_basis": "Bei Aktivierung: Art. 6 Abs. 1 lit. f DSGVO oder lit. a DSGVO je nach Einsatzart.",
+        "transfer_basis": "Bei Aktivierung: EU-Standardvertragsklauseln und geeignete Garantien.",
+        "opt_out": "Falls auf Einwilligung gestuetzt: Widerruf ueber Cookie-Einstellungen.",
+        "retention": "Bei Aktivierung gemaess Google-Vorgaben und interner Loeschkonzepte.",
+        "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland."
+      }
+    ],
+    "consent_management": {
+      "cmp_name": "Cookie- und Consent-Management-Tool",
+      "consent_withdrawal_howto": "Einwilligungen fuer nicht erforderliche Cookies und Google-Dienste koennen jederzeit mit Wirkung fuer die Zukunft ueber die Cookie-Einstellungen widerrufen oder angepasst werden.",
+      "policy_versioning_note": "Diese Datenschutzhinweise werden bei Veraenderungen von Rechtslage, Diensten oder Verarbeitungen aktualisiert."
+    },
+    "international_transfers_detail": [
+      "Bei Empfaengern ausserhalb der EU/des EWR pruefen wir vorab das Datenschutzniveau und vereinbaren EU-Standardvertragsklauseln.",
+      "Ergaenzend werden risikobasierte technische und organisatorische Schutzmassnahmen eingesetzt.",
+      "Weitere Informationen zu Garantien koennen unter contact@bartandbuy.de angefordert werden."
+    ]
+  }
+}

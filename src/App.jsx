@@ -124,72 +124,10 @@ function Icon({ children }) {
   )
 }
 
-function IconPlus() {
-  return (
-    <Icon>
-      <path d="M12 5v14" />
-      <path d="M5 12h14" />
-    </Icon>
-  )
-}
-
-function IconSettings() {
-  return (
-    <Icon>
-      <path d="M4 6h10" />
-      <path d="M18 6h2" />
-      <circle cx="16" cy="6" r="2" />
-      <path d="M4 12h4" />
-      <path d="M12 12h8" />
-      <circle cx="10" cy="12" r="2" />
-      <path d="M4 18h10" />
-      <path d="M18 18h2" />
-      <circle cx="16" cy="18" r="2" />
-    </Icon>
-  )
-}
-
-function IconHelp() {
-  return (
-    <Icon>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M9.5 9.2a2.8 2.8 0 0 1 5 1.6c0 2.1-2.2 2.6-2.2 4.2" />
-      <circle cx="12" cy="17.2" r="0.7" fill="currentColor" />
-    </Icon>
-  )
-}
-
-function IconClose() {
-  return (
-    <Icon>
-      <path d="M6 6l12 12" />
-      <path d="M18 6l-12 12" />
-    </Icon>
-  )
-}
-
 function IconCheck() {
   return (
     <Icon>
       <path d="M5 13l4 4 10-10" />
-    </Icon>
-  )
-}
-
-function IconUndo() {
-  return (
-    <Icon>
-      <path d="M9 7L5 11l4 4" />
-      <path d="M5 11h8a6 6 0 0 1 0 12h-2" />
-    </Icon>
-  )
-}
-
-function IconRedo() {
-  return (
-    <Icon>
-      <path d="M15 7l4 4-4 4" />
-      <path d="M19 11h-8a6 6 0 0 0 0 12h2" />
     </Icon>
   )
 }
@@ -214,9 +152,18 @@ function IconUpload() {
   )
 }
 
+function SymbolIcon({ name, className = '' }) {
+  return (
+    <span className={`material-symbol${className ? ` ${className}` : ''}`} aria-hidden="true">
+      {name}
+    </span>
+  )
+}
+
 function App() {
   const [cards, setCards] = useState(() => loadCards())
   const [theme, setTheme] = useState(() => loadTheme())
+  const [searchQuery, setSearchQuery] = useState('')
   const [editingId, setEditingId] = useState(null)
   const [editingTitle, setEditingTitle] = useState('')
   const [draggingId, setDraggingId] = useState(null)
@@ -311,6 +258,8 @@ function App() {
     }
     return grouped
   }, [cards])
+
+  const backlogCount = cardsByColumn.backlog.length
 
   function applyWithHistory(updater) {
     setCards((previous) => {
@@ -623,6 +572,21 @@ function App() {
       <div className="app-frame">
         <header className="app-chrome">
           <h1 className="app-title">Kanbart</h1>
+          <div className="chrome-search">
+            <label className="visually-hidden" htmlFor="board-search">
+              Search
+            </label>
+            <div className="search-shell">
+              <input
+                id="board-search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search"
+                aria-label="Search cards"
+              />
+              <SymbolIcon name="search" className="search-symbol" />
+            </div>
+          </div>
           <div className="chrome-actions">
             <button
               ref={settingsButtonRef}
@@ -631,7 +595,7 @@ function App() {
               aria-label="Open settings"
               onClick={() => setIsSettingsOpen(true)}
             >
-              <IconSettings />
+              <SymbolIcon name="settings" />
             </button>
             <button
               ref={helpButtonRef}
@@ -640,7 +604,7 @@ function App() {
               aria-label="Open help"
               onClick={() => setIsHelpOpen(true)}
             >
-              <IconHelp />
+              <SymbolIcon name="help" />
             </button>
           </div>
         </header>
@@ -648,6 +612,10 @@ function App() {
         <main className="board-grid">
           {COLUMNS.map((column, columnIndex) => {
             const orderedCards = cardsByColumn[column.id]
+            const isBacklog = column.id === 'backlog'
+            const showBacklogStarter = isBacklog && (isComposerOpen || backlogCount < 3)
+            const centerBacklogStarter =
+              isBacklog && backlogCount < 3 && !isComposerOpen
             return (
               <section
                 key={column.id}
@@ -661,8 +629,10 @@ function App() {
                 </header>
 
                 <div className="column-body">
-                  {column.id === 'backlog' && (
-                    <div className="backlog-entry">
+                  {showBacklogStarter && (
+                    <div
+                      className={`backlog-entry${centerBacklogStarter ? ' backlog-entry-floating' : ''}`}
+                    >
                       {isComposerOpen ? (
                         <form className="composer" onSubmit={submitComposer}>
                           <input
@@ -696,116 +666,113 @@ function App() {
                             aria-label="Create new card"
                             onClick={openComposer}
                           >
-                            <IconPlus />
+                            <SymbolIcon name="add_circle" />
                           </button>
-                          <span className="hint-text">or press "N"</span>
+                          <span className="hint-text">or press N</span>
                         </div>
                       )}
                     </div>
                   )}
+                  <div className="cards-stack">
+                    {orderedCards.map((card, cardIndex) => (
+                      <article
+                        key={card.id}
+                        className={`task-card priority-${card.priority}${draggingId === card.id ? ' is-dragging' : ''}`}
+                        draggable
+                        tabIndex={0}
+                        onDragStart={(event) => {
+                          event.dataTransfer.effectAllowed = 'move'
+                          event.dataTransfer.setData('text/plain', String(card.id))
+                          setDraggingId(card.id)
+                        }}
+                        onDragEnd={() => setDraggingId(null)}
+                        onKeyDown={(event) => handleCardKeyDown(event, card)}
+                      >
+                        <div className="card-top-row">
+                          <span className={`priority-pill priority-${card.priority}`}>
+                            {card.priority}
+                          </span>
+                          <select
+                            value={card.priority}
+                            className="priority-select"
+                            aria-label={`Set priority for ${card.title}`}
+                            onChange={(event) =>
+                              setCardPriority(card.id, event.target.value)
+                            }
+                          >
+                            {PRIORITIES.map((priority) => (
+                              <option key={priority.id} value={priority.id}>
+                                {priority.label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
 
-                  {orderedCards.length === 0 && (
-                    <p className="empty-state">Empty</p>
-                  )}
+                        {editingId === card.id ? (
+                          <form
+                            onSubmit={(event) => {
+                              event.preventDefault()
+                              saveEdit(card.id)
+                            }}
+                          >
+                            <input
+                              value={editingTitle}
+                              onChange={(event) => setEditingTitle(event.target.value)}
+                              onBlur={() => saveEdit(card.id)}
+                              autoFocus
+                            />
+                          </form>
+                        ) : (
+                          <p className="card-title">{card.title}</p>
+                        )}
 
-                  {orderedCards.map((card, cardIndex) => (
-                    <article
-                      key={card.id}
-                      className={`task-card priority-${card.priority}${draggingId === card.id ? ' is-dragging' : ''}`}
-                      draggable
-                      tabIndex={0}
-                      onDragStart={(event) => {
-                        event.dataTransfer.effectAllowed = 'move'
-                        event.dataTransfer.setData('text/plain', String(card.id))
-                        setDraggingId(card.id)
-                      }}
-                      onDragEnd={() => setDraggingId(null)}
-                      onKeyDown={(event) => handleCardKeyDown(event, card)}
-                    >
-                      <div className="card-top-row">
-                        <span className={`priority-pill priority-${card.priority}`}>
-                          {card.priority}
-                        </span>
-                        <select
-                          value={card.priority}
-                          className="priority-select"
-                          aria-label={`Set priority for ${card.title}`}
-                          onChange={(event) =>
-                            setCardPriority(card.id, event.target.value)
-                          }
-                        >
-                          {PRIORITIES.map((priority) => (
-                            <option key={priority.id} value={priority.id}>
-                              {priority.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {editingId === card.id ? (
-                        <form
-                          onSubmit={(event) => {
-                            event.preventDefault()
-                            saveEdit(card.id)
-                          }}
-                        >
-                          <input
-                            value={editingTitle}
-                            onChange={(event) => setEditingTitle(event.target.value)}
-                            onBlur={() => saveEdit(card.id)}
-                            autoFocus
-                          />
-                        </form>
-                      ) : (
-                        <p className="card-title">{card.title}</p>
-                      )}
-
-                      <div className="card-actions">
-                        <button
-                          type="button"
-                          onClick={() => shiftColumn(card.id, -1)}
-                          disabled={columnIndex === 0}
-                          aria-label={`Move ${card.title} to previous column`}
-                        >
-                          {'<'}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => shiftColumn(card.id, 1)}
-                          disabled={columnIndex === COLUMNS.length - 1}
-                          aria-label={`Move ${card.title} to next column`}
-                        >
-                          {'>'}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => reorderInColumn(card.id, -1)}
-                          disabled={cardIndex === 0}
-                          aria-label={`Move ${card.title} up`}
-                        >
-                          ^
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => reorderInColumn(card.id, 1)}
-                          disabled={cardIndex === orderedCards.length - 1}
-                          aria-label={`Move ${card.title} down`}
-                        >
-                          v
-                        </button>
-                        <button type="button" onClick={() => startEdit(card)} aria-label={`Edit ${card.title}`}>
-                          E
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => deleteCard(card.id)}
-                          aria-label={`Delete ${card.title}`}
-                        >
-                          X
-                        </button>
-                      </div>
-                    </article>
-                  ))}
+                        <div className="card-actions">
+                          <button
+                            type="button"
+                            onClick={() => shiftColumn(card.id, -1)}
+                            disabled={columnIndex === 0}
+                            aria-label={`Move ${card.title} to previous column`}
+                          >
+                            {'<'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => shiftColumn(card.id, 1)}
+                            disabled={columnIndex === COLUMNS.length - 1}
+                            aria-label={`Move ${card.title} to next column`}
+                          >
+                            {'>'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => reorderInColumn(card.id, -1)}
+                            disabled={cardIndex === 0}
+                            aria-label={`Move ${card.title} up`}
+                          >
+                            ^
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => reorderInColumn(card.id, 1)}
+                            disabled={cardIndex === orderedCards.length - 1}
+                            aria-label={`Move ${card.title} down`}
+                          >
+                            v
+                          </button>
+                          <button type="button" onClick={() => startEdit(card)} aria-label={`Edit ${card.title}`}>
+                            E
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => deleteCard(card.id)}
+                            aria-label={`Delete ${card.title}`}
+                          >
+                            X
+                          </button>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
                 </div>
               </section>
             )
@@ -820,7 +787,7 @@ function App() {
             onClick={undo}
             disabled={undoStack.length === 0}
           >
-            <IconUndo />
+            <SymbolIcon name="undo" />
           </button>
           <button
             type="button"
@@ -829,7 +796,7 @@ function App() {
             onClick={redo}
             disabled={redoStack.length === 0}
           >
-            <IconRedo />
+            <SymbolIcon name="redo" />
           </button>
         </div>
       </div>
@@ -851,7 +818,7 @@ function App() {
                 aria-label="Close help"
                 onClick={closeHelpModal}
               >
-                <IconClose />
+                <SymbolIcon name="close" />
               </button>
             </header>
             <ul className="shortcut-list">
@@ -897,7 +864,7 @@ function App() {
                 aria-label="Close settings"
                 onClick={closeSettingsModal}
               >
-                <IconClose />
+                <SymbolIcon name="close" />
               </button>
             </header>
 

@@ -1,5 +1,30 @@
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  src: url('./assets/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.woff2')
+    format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arimo Variable';
+  src: url('./assets/Arimo-VariableFont_wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arimo Variable';
+  src: url('./assets/Arimo-Italic-VariableFont_wght.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
-  font-family: 'Bahnschrift', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-family: 'Arimo Variable', 'Segoe UI', sans-serif;
   line-height: 1.4;
   font-weight: 400;
   font-synthesis: none;
@@ -7,6 +32,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+
+  --font-size-title: 1.08rem;
+  --font-size-body: 1.0rem;
+  --font-size-status: 0.8rem;
+  --font-size-page-title: clamp(1.55rem, 1.5vw + 1.05rem, 2.2rem);
+
+  --font-weight-title: 600;
+  --font-weight-body: 300;
+  --font-weight-status: 400;
 
   --canvas-top: #050913;
   --canvas-bottom: #02040a;
@@ -37,8 +71,8 @@
   --priority-low: #7180a2;
 
   --focus-ring: #93b3ff;
-  --shadow-panel: 0 24px 42px -34px rgba(0, 0, 0, 0.9);
-  --shadow-card: 0 18px 26px -26px rgba(0, 0, 0, 0.96);
+  --shadow-panel: 0 16px 28px -24px rgba(0, 0, 0, 0.82);
+  --shadow-card: 0 10px 18px -16px rgba(0, 0, 0, 0.78);
 }
 
 html[data-theme='light'] {
@@ -73,8 +107,8 @@ html[data-theme='light'] {
   --priority-low: #6f7a94;
 
   --focus-ring: #4b66a1;
-  --shadow-panel: 0 26px 40px -34px rgba(44, 57, 83, 0.5);
-  --shadow-card: 0 14px 22px -20px rgba(42, 57, 86, 0.45);
+  --shadow-panel: 0 16px 26px -22px rgba(44, 57, 83, 0.34);
+  --shadow-card: 0 9px 16px -13px rgba(42, 57, 86, 0.28);
 }
 
 * {
