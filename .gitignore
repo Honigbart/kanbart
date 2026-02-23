@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+coverage/
+*.tsbuildinfo
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager / tool caches
+.npm/
+.pnpm-store/
+.yarn/
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+
+# Test artifacts
+playwright-report/
+test-results/
+
+# IDE/editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local machine shortcuts
+*.lnk
+
+# Temporary local scaffold folder
+kanbart_app/

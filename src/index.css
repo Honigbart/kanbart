@@ -1,0 +1,91 @@
+:root {
+  font-family: 'Bahnschrift', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+
+  --canvas-top: #050913;
+  --canvas-bottom: #02040a;
+  --canvas-glow-1: rgba(76, 113, 190, 0.2);
+  --canvas-glow-2: rgba(68, 91, 160, 0.14);
+  --canvas-scanline: rgba(137, 160, 213, 0.04);
+  --canvas-vignette: rgba(0, 0, 0, 0.34);
+
+  --text-primary: #e6ebf7;
+  --text-secondary: #b2bdd4;
+  --text-muted: #8f9ab3;
+
+  --surface-panel: rgba(16, 23, 38, 0.72);
+  --surface-card: rgba(22, 31, 49, 0.86);
+  --surface-field: rgba(17, 25, 40, 0.9);
+  --surface-control: rgba(25, 34, 52, 0.74);
+
+  --border-soft: rgba(172, 189, 224, 0.16);
+  --border-strong: rgba(172, 189, 224, 0.34);
+
+  --accent-border: rgba(157, 183, 241, 0.56);
+  --accent-fill-top: rgba(115, 152, 227, 0.26);
+  --accent-fill-bottom: rgba(80, 113, 184, 0.3);
+  --accent-text: #e8efff;
+
+  --priority-high: #f16464;
+  --priority-normal: #a4afc4;
+  --priority-low: #7180a2;
+
+  --focus-ring: #93b3ff;
+  --shadow-panel: 0 24px 42px -34px rgba(0, 0, 0, 0.9);
+  --shadow-card: 0 18px 26px -26px rgba(0, 0, 0, 0.96);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+
+  --canvas-top: #dfe2e8;
+  --canvas-bottom: #cfd4dd;
+  --canvas-glow-1: rgba(255, 255, 255, 0.5);
+  --canvas-glow-2: rgba(220, 225, 235, 0.48);
+  --canvas-scanline: rgba(255, 255, 255, 0.24);
+  --canvas-vignette: rgba(164, 173, 189, 0.12);
+
+  --text-primary: #2b3447;
+  --text-secondary: #485267;
+  --text-muted: #667189;
+
+  --surface-panel: rgba(240, 243, 249, 0.8);
+  --surface-card: rgba(250, 252, 255, 0.95);
+  --surface-field: rgba(255, 255, 255, 0.94);
+  --surface-control: rgba(245, 248, 252, 0.96);
+
+  --border-soft: rgba(95, 115, 145, 0.2);
+  --border-strong: rgba(89, 109, 140, 0.38);
+
+  --accent-border: rgba(72, 95, 145, 0.42);
+  --accent-fill-top: rgba(133, 156, 208, 0.28);
+  --accent-fill-bottom: rgba(112, 138, 189, 0.36);
+  --accent-text: #1f2a3f;
+
+  --priority-high: #cf4c4c;
+  --priority-normal: #8c95a9;
+  --priority-low: #6f7a94;
+
+  --focus-ring: #4b66a1;
+  --shadow-panel: 0 26px 40px -34px rgba(44, 57, 83, 0.5);
+  --shadow-card: 0 14px 22px -20px rgba(42, 57, 86, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+}
