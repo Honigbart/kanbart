@@ -23,6 +23,23 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Nunito Sans Variable';
+  src: url('./assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.woff2')
+    format('woff2');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader Variable';
+  src: url('./assets/Newsreader-VariableFont_opsz,wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
 :root {
   font-family: 'Arimo Variable', 'Segoe UI', sans-serif;
   line-height: 1.4;
@@ -33,17 +50,17 @@
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
 
-  --font-size-title: 1.08rem;
+  --font-size-title: 1.14rem;
   --font-size-body: 1.0rem;
   --font-size-status: 0.8rem;
   --font-size-page-title: clamp(1.55rem, 1.5vw + 1.05rem, 2.2rem);
 
-  --font-weight-title: 600;
+  --font-weight-title: 900;
   --font-weight-body: 300;
   --font-weight-status: 400;
 
-  --canvas-top: #050913;
-  --canvas-bottom: #02040a;
+  --canvas-top: #21242B;
+  --canvas-bottom: #0D0D0D;
   --canvas-glow-1: rgba(76, 113, 190, 0.2);
   --canvas-glow-2: rgba(68, 91, 160, 0.14);
   --canvas-scanline: rgba(137, 160, 213, 0.04);
@@ -53,13 +70,13 @@
   --text-secondary: #b2bdd4;
   --text-muted: #8f9ab3;
 
-  --surface-panel: rgba(16, 23, 38, 0.72);
-  --surface-card: rgba(22, 31, 49, 0.86);
-  --surface-field: rgba(17, 25, 40, 0.9);
-  --surface-control: rgba(25, 34, 52, 0.74);
+  --surface-panel: rgba(20, 20, 24, 0.78);
+  --surface-card: rgba(27, 27, 32, 0.9);
+  --surface-field: rgba(22, 22, 27, 0.92);
+  --surface-control: rgba(33, 33, 39, 0.82);
 
-  --border-soft: rgba(172, 189, 224, 0.16);
-  --border-strong: rgba(172, 189, 224, 0.34);
+  --border-soft: rgba(170, 170, 184, 0.16);
+  --border-strong: rgba(190, 190, 208, 0.3);
 
   --accent-border: rgba(157, 183, 241, 0.56);
   --accent-fill-top: rgba(115, 152, 227, 0.26);
@@ -78,8 +95,8 @@
 html[data-theme='light'] {
   color-scheme: light;
 
-  --canvas-top: #dfe2e8;
-  --canvas-bottom: #cfd4dd;
+  --canvas-top: #fffafa;
+  --canvas-bottom: #add8e6;
   --canvas-glow-1: rgba(255, 255, 255, 0.5);
   --canvas-glow-2: rgba(220, 225, 235, 0.48);
   --canvas-scanline: rgba(255, 255, 255, 0.24);
