@@ -59,8 +59,8 @@
   --font-weight-body: 300;
   --font-weight-status: 400;
 
-  --canvas-top: #21242B;
-  --canvas-bottom: #0D0D0D;
+  --canvas-top: #1c2129;
+  --canvas-bottom: #010101;
   --canvas-glow-1: rgba(76, 113, 190, 0.2);
   --canvas-glow-2: rgba(68, 91, 160, 0.14);
   --canvas-scanline: rgba(137, 160, 213, 0.04);
@@ -70,10 +70,10 @@
   --text-secondary: #b2bdd4;
   --text-muted: #8f9ab3;
 
-  --surface-panel: rgba(20, 20, 24, 0.78);
+  --surface-panel: #20252e;
   --surface-card: rgba(27, 27, 32, 0.9);
   --surface-field: rgba(22, 22, 27, 0.92);
-  --surface-control: rgba(33, 33, 39, 0.82);
+  --surface-control: #232932;
 
   --border-soft: rgba(170, 170, 184, 0.16);
   --border-strong: rgba(190, 190, 208, 0.3);
