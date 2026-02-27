@@ -1616,8 +1616,16 @@ function App() {
           {COLUMNS.map((column) => {
             const orderedCards = cardsByColumn[column.id]
             const isBacklog = column.id === 'backlog'
-            const showBacklogStarter = isBacklog && backlogCount < 3
-            const centerBacklogStarter = isBacklog && backlogCount < 3
+            const backlogFillProgress = isBacklog ? Math.min(1, backlogCount / 3) : 1
+            const backlogCtaRaise = isBacklog ? Math.round((1 - backlogFillProgress) * 18) : 0
+            const backlogDockStateClass = isBacklog
+              ? backlogFillProgress >= 1
+                ? ' is-docked'
+                : backlogFillProgress <= 0
+                  ? ' is-empty'
+                  : ' is-partial'
+              : ''
+            const showBacklogHint = isBacklog && backlogFillProgress < 1
             return (
               <section
                 key={column.id}
@@ -1631,23 +1639,6 @@ function App() {
                 </header>
 
                 <div className="column-body">
-                  {showBacklogStarter && (
-                    <div
-                      className={`backlog-entry${centerBacklogStarter ? ' backlog-entry-floating' : ''}`}
-                    >
-                      <div className="add-inline">
-                        <button
-                          type="button"
-                          className="icon-button add-button"
-                          aria-label="Create new card"
-                          onClick={createEmptyCardInBacklog}
-                        >
-                          <SymbolIcon name="add_circle" />
-                        </button>
-                        <span className="hint-text">or press N</span>
-                      </div>
-                    </div>
-                  )}
                   <div className="cards-stack">
                     {orderedCards.map((card) => {
                       const isEditingCard = editingId === card.id
@@ -1773,6 +1764,26 @@ function App() {
                       )
                     })}
                   </div>
+                  {isBacklog && (
+                    <div
+                      className={`backlog-add-dock${backlogDockStateClass}`}
+                      style={{ '--backlog-cta-raise': `${backlogCtaRaise}px` }}
+                    >
+                      <div className="backlog-entry">
+                        <div className="add-inline">
+                          <button
+                            type="button"
+                            className="icon-button add-button"
+                            aria-label="Create new card"
+                            onClick={createEmptyCardInBacklog}
+                          >
+                            <SymbolIcon name="add_circle" />
+                          </button>
+                          {showBacklogHint && <span className="hint-text">or press N</span>}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </section>
             )
